@@ -1,0 +1,14 @@
+{
+  "name": "flappy-bird-certified",
+  "version": "2.0.0",
+  "description": "Flappy Bird estilo original com guarda-roupa de skins e certificação por e-mail",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.6",
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.13"
+  }
+}

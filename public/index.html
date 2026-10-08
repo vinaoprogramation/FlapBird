@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flappy Bird Arcade & Wardrobe</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="game-wrapper">
+      <!-- Header / Ações do Jogo -->
+      <header class="game-header">
+        <h1 class="logo">FLAPPY <span>ARCADE</span></h1>
+        <div class="action-bar">
+          <button id="btnWardrobe" class="arcade-btn green">
+            👕 Guarda-Roupa
+          </button>
+          <button id="btnCertificate" class="arcade-btn yellow">
+            📜 Certificado
+          </button>
+          <button id="btnMute" class="arcade-btn icon-btn">🔊</button>
+        </div>
+      </header>
+
+      <!-- Canvas Principal -->
+      <div class="canvas-container">
+        <canvas id="gameCanvas" width="360" height="580"></canvas>
+      </div>
+
+      <p class="footer-tip">
+        Pressione <strong>ESPAÇO</strong> ou <strong>CLIQUE</strong> para voar
+      </p>
+    </div>
+
+    <!-- MODAL: GUARDA-ROUPA -->
+    <div id="wardrobeModal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>👕 Guarda-Roupa de Skins</h2>
+          <button class="close-modal" id="closeWardrobe">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="upload-section">
+            <h3>Adicionar Nova Skin (Foto/Rosto)</h3>
+            <form id="uploadSkinForm">
+              <input
+                type="text"
+                id="skinNameInput"
+                placeholder="Nome da Skin"
+                required
+                maxlength="15"
+              />
+
+              <!-- Adicionado Preview da Imagem -->
+              <div class="preview-container">
+                <img
+                  id="skinPreviewImg"
+                  class="hidden"
+                  src=""
+                  alt="Preview da Skin"
+                />
+              </div>
+
+              <label for="skinFileInput" class="file-label"
+                >📸 Escolher Foto</label
+              >
+              <input type="file" id="skinFileInput" accept="image/*" required />
+              <button type="submit" class="arcade-btn green">
+                Salvar no Guarda-Roupa
+              </button>
+            </form>
+          </div>
+
+          <hr class="divider" />
+
+          <h3>Minhas Skins Salvas</h3>
+          <div id="skinsGrid" class="skins-grid">
+            <!-- Renderizado via JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: CERTIFICADO -->
+    <div id="certificateModal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>📜 Certificado de Conquista</h2>
+          <button class="close-modal" id="closeCert">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="certificate-preview" id="certPreview">
+            <div class="cert-border">
+              <span class="cert-badge">FLAPPY CHAMPION</span>
+              <h2>CERTIFICADO</h2>
+              <p>Concedido a:</p>
+              <input
+                type="text"
+                id="playerNameInput"
+                class="cert-name-input"
+                placeholder="Digite seu Nome"
+                value="Jogador Campeão"
+              />
+              <div class="cert-stats">
+                <div class="stat-box">
+                  <span>ÚLTIMA PONTUAÇÃO</span>
+                  <strong id="certScore">0</strong>
+                </div>
+                <div class="stat-box">
+                  <span>MAIOR RECORDE</span>
+                  <strong id="certHighScore">0</strong>
+                </div>
+              </div>
+              <p class="cert-footer-text">
+                Autenticado por Flappy Arcade Server
+              </p>
+            </div>
+          </div>
+
+          <form id="emailCertForm" class="email-form">
+            <label for="certEmailInput">Enviar para seu E-mail:</label>
+            <div class="email-input-group">
+              <input
+                type="email"
+                id="certEmailInput"
+                placeholder="seu-email@exemplo.com"
+                required
+              />
+              <button type="submit" id="btnSendEmail" class="arcade-btn yellow">
+                Enviar E-mail
+              </button>
+            </div>
+            <p id="certStatusMsg" class="status-msg"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
